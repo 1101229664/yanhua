@@ -38,7 +38,7 @@
 		var x = e.clientX;
 		var y = e.clientY;
 
-		createFireworks(x, y,["刘志燕"][Math.floor(Math.random()*3)]);
+		createFireworks(x, y,["刘志燕","二零二三","新年快乐"][Math.floor(Math.random()*3)]);
 	}
 	document.addEventListener("mousedown", mouseDownHandler);
 
@@ -211,6 +211,44 @@
 		}
 	});
 
+	let num = 0
+	setInterval(()=>{
+		if(num >= 1) {
+			num = 0
+			createFireworks(0.2*canvas.width,0.4*canvas.height);
+			createFireworks(0.4*canvas.width,0.4*canvas.height);
+			createFireworks(0.5*canvas.width,0.4*canvas.height);
+			createFireworks(0.6*canvas.width,0.4*canvas.height);
+			createFireworks(0.8*canvas.width,0.4*canvas.height);
+			createFireworks(1*canvas.width,0.4*canvas.height);
+		}
+		if( num == 0) {
+			setTimeout(()=>{
+				createFireworks(0.2*canvas.width,0.2*canvas.height);
+				setTimeout(()=>{
+					createFireworks(0.4*canvas.width,0.2*canvas.height);
+					setTimeout(()=>{
+						createFireworks(0.5*canvas.width,0.2*canvas.height);
+						setTimeout(()=>{
+							createFireworks(0.6*canvas.width,0.2*canvas.height);
+							setTimeout(()=>{
+								createFireworks(0.8*canvas.width,0.2*canvas.height);
+								setTimeout(()=>{
+									createFireworks(1*canvas.width,0.2*canvas.height);
+								},100)
+							},100)
+						},100)
+					},100)
+				},100)
+			},100)
+		}
+		num += 0.1
+		createFireworks(num*canvas.width,0.4*canvas.height);
+		if( num == 0.5) {
+			createFireworks(0.5*canvas.width,0.2*canvas.height,["刘志燕","二零二三","新年快乐"][Math.floor(Math.random()*3)]);
+		}
+	},1000)
+	
 	function fireworks() {
 		document.querySelector('.page_one').addClass('hide');
 		document.querySelector('.page_two').removeClass('hide');
